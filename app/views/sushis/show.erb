@@ -9,5 +9,16 @@
 </div>
 
 <h4 class="red-text"> Name: <%= @sushi.name %> </h4>
+<h5>Created for you at: <%= @sushi.created_at.strftime("%b %e, %l:%M %p") %></h5>
+<h5>Created for you at: <%= @sushi.created_time %></h5>
+<h5>Created for you at: <%= created_time_helper(@sushi) %></h5>
+<ul>
+  <% @sushi.ingredients.each do | ing | %>
+    <li><%= ing.name %> | Calories: <%= ing.calories %> | Serving Size: <%= ing.serving_size %></li>
+  <% end %>
+</ul>
+
+
+
 <h6><%= link_to "Edit your sushi", edit_sushi_path(@sushi) %></h6>
 <h6><%= link_to("Delete your sushi", @sushi, method: :delete, data:{confirm: "Do you really want to delete me?"}) %></h6>

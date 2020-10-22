@@ -6,10 +6,8 @@
         <div class="col-xs-8">
             <p>Alter this sushi to your heart's content:</p>
             <br/>
-            <%= form_with model: @sushi do |f| %>
-                <%= f.text_field :name %>
-                <%= f.submit %>
-            <% end %>
+        <!--render partial here -->
+        <%= render 'form' %>
 
         </div>
         <div class="col-xs-4">

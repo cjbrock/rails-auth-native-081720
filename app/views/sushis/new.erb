@@ -6,27 +6,15 @@
             <p>You name it, we make it. Fill out your preference and our waiter will bring it directly to you.</p>
             <br/>
 
-            <% if @sushi.errors.any? %>
-                <% @sushi.errors.full_messages.each do | error | %>
-                 <h5 class="error"><%= error %></h5>
-                <% end %>
-            <% end %>
+            <%# if @sushi.errors.any? %>
+                <%# @sushi.errors.full_messages.each do | error | %>
+                 <!--<h5 class="error"><%#= error %></h5>-->
+                <%# end %>
+            <%# end %>
 
-            <% if @sushi.errors.any? %>
-                 <h5 class="error"><%= @sushi.errors.full_messages.to_sentence %></h5>
-            <% end %>
+            <!-- render our partial here-->
 
-
-
-            <%#= form_for @sushi do |f| %>
-                <%#= f.text_field :name %>
-                <%#= f.submit %>
-            <%# end %> 
-
-            <%= form_with model: @sushi, local: true do |f| %>
-                <%= f.text_field :name, class: @sushi.errors.any? ? "error-field" : nil %>
-                <%= f.submit %>
-            <% end %> 
+            <%= render 'form' %>
 
 
         </div>

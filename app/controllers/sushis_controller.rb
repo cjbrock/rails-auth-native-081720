@@ -9,13 +9,16 @@ class SushisController < ApplicationController
       if !@sushi
         redirect_to sushis_path
       end
+      render layout: "custom"
     end
 
     def new
       @sushi = Sushi.new
+      5.times { @sushi.ingredients.build }
     end
 
     def create
+      # binding.pry
       @sushi = Sushi.new(sushi_params)
       if @sushi.save
         redirect_to sushi_path(@sushi)
@@ -55,6 +58,6 @@ class SushisController < ApplicationController
     end
 
     def sushi_params
-      params.require(:sushi).permit(:name)
+      params.require(:sushi).permit(:name, ingredients_attributes: [:id, :name, :calories, :serving_size])
     end
 end
