@@ -21,4 +21,5 @@
 
 
 <h6><%= link_to "Edit your sushi", edit_sushi_path(@sushi) %></h6>
+<h6><%= link_to "View Your Ingredients", sushi_ingredients_path(@sushi) %></h6>
 <h6><%= link_to("Delete your sushi", @sushi, method: :delete, data:{confirm: "Do you really want to delete me?"}) %></h6>

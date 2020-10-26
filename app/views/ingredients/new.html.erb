@@ -1,0 +1,15 @@
+<h1>Create a new ingredient</h1>
+<% if @ingredient.errors.any? %>
+        <h5 class="error"><%= @ingredient.errors.full_messages.to_sentence %></h5>
+<% end %>
+
+<%= form_with model: [@sushi, @ingredient], local: true do | f | %>
+        <%= f.label :name %>
+        <%= f.text_field :name %><br />
+        <%= f.label :calories %>
+        <%= f.number_field :calories %><br />
+        <%= f.label :serving_size %>
+        <%= f.number_field :serving_size %><br />
+        <%= f.submit %>
+<% end %>
+    
