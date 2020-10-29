@@ -9,7 +9,6 @@ class SushisController < ApplicationController
       if !@sushi
         redirect_to sushis_path
       end
-      render layout: "custom"
     end
 
     def new
@@ -18,12 +17,14 @@ class SushisController < ApplicationController
     end
 
     def create
-      # binding.pry
+      binding.pry
       @sushi = Sushi.new(sushi_params)
+      binding.pry
       if @sushi.save
         redirect_to sushi_path(@sushi)
       else
-        render "new"
+        render :new
+        5.times { @sushi.ingredients.build }
       end
     end
 

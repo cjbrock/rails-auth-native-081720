@@ -1,14 +1,19 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
   resources :sushis do 
     resources :ingredients
   end
 
   resources :ingredients
 
-  # get '/ingredients', to: "ingredients#index"
-  # get '/sushis/:sushi_id/ingredients', to: "ingredients#index"
+  resources :users
+
+  get 'login', to: 'sessions#new'
+
+  post 'login', to: 'sessions#create'
+
+  get 'welcome', to: 'sessions#welcome'
+
+  delete 'logout', to: 'sessions#destroy'
 
 
   get '/', to: "sushis#home"
